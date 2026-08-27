@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="styles.css?v=1.1" />
     <script src="app.js?v=1.1" defer></script>
   </head>
+
   <body>
     <a class="skip-link" href="#timer">Skip to timer</a>
 
@@ -30,7 +31,7 @@
       <section class="intro" aria-labelledby="page-title">
         <p class="eyebrow">Browser-based session tool</p>
         <h1 id="page-title">ABA Timer</h1>
-<p class="intro-copy">
+        <p class="intro-copy">
           Run repeating fixed-time schedules or randomized variable-time
           schedules with a precise target mean.
         </p>
@@ -43,6 +44,7 @@
               <p class="timer-label" id="timer-heading">Time remaining</p>
               <p class="timer-schedule" id="schedule-summary">FT · 5 minutes</p>
             </div>
+
             <span class="status-pill" id="status-pill" data-status="ready">
               <span class="status-dot" aria-hidden="true"></span>
               <span id="status-text">Ready</span>
@@ -80,17 +82,32 @@
               <span aria-hidden="true">▶</span>
               <span id="start-label">Start</span>
             </button>
-            <button class="button button-secondary" id="pause-button" type="button" disabled>
+
+            <button
+              class="button button-secondary"
+              id="pause-button"
+              type="button"
+              disabled
+            >
               <span aria-hidden="true">Ⅱ</span>
               Pause
             </button>
-            <button class="button button-quiet" id="reset-button" type="button" disabled>
+
+            <button
+              class="button button-quiet"
+              id="reset-button"
+              type="button"
+              disabled
+            >
               <span aria-hidden="true">↺</span>
               Reset
             </button>
           </div>
 
-          <p class="timer-help">The timer repeats until you pause or reset it.</p>
+          <p class="timer-help">
+            The timer repeats until you pause or reset it.
+          </p>
+
           <div class="sr-only" id="live-region" aria-live="assertive"></div>
         </section>
 
@@ -100,11 +117,13 @@
               <p class="eyebrow">Session settings</p>
               <h2 id="setup-heading">Build your schedule</h2>
             </div>
+
             <span class="lock-note" id="lock-note" hidden>Reset to edit</span>
           </div>
 
           <fieldset class="field-group">
             <legend>Schedule type</legend>
+
             <div class="segmented-control">
               <label>
                 <input type="radio" name="mode" value="FT" checked />
@@ -113,6 +132,7 @@
                   <small>FT</small>
                 </span>
               </label>
+
               <label>
                 <input type="radio" name="mode" value="VT" />
                 <span>
@@ -121,6 +141,7 @@
                 </span>
               </label>
             </div>
+
             <p class="field-help" id="mode-help">
               Every interval uses the same duration.
             </p>
@@ -128,6 +149,7 @@
 
           <fieldset class="field-group duration-group">
             <legend>Target time</legend>
+
             <div class="duration-inputs">
               <label>
                 <span class="sr-only">Time value</span>
@@ -142,6 +164,7 @@
                   aria-describedby="time-error"
                 />
               </label>
+
               <label>
                 <span class="sr-only">Time unit</span>
                 <select id="time-unit">
@@ -151,7 +174,9 @@
                 </select>
               </label>
             </div>
+
             <p class="field-error" id="time-error" role="alert"></p>
+
             <p class="field-help" id="target-help">
               Fixed intervals repeat every 5 minutes.
             </p>
@@ -159,35 +184,46 @@
 
           <fieldset class="field-group alerts-group">
             <legend>Interval alert</legend>
+
             <label class="toggle-row">
               <span>
                 <strong>Sound</strong>
                 <small id="sound-support">Play a two-tone chime</small>
               </span>
+
               <span class="switch">
                 <input id="sound-toggle" type="checkbox" checked />
                 <span aria-hidden="true"></span>
               </span>
             </label>
+
             <label class="toggle-row" id="vibration-row">
               <span>
                 <strong>Vibration</strong>
                 <small id="vibration-support">If supported by this device</small>
               </span>
+
               <span class="switch">
                 <input id="vibration-toggle" type="checkbox" checked />
                 <span aria-hidden="true"></span>
               </span>
             </label>
+
             <div class="alert-test-panel">
-              <button class="alert-test-button" id="test-alert-button" type="button">
+              <button
+                class="alert-test-button"
+                id="test-alert-button"
+                type="button"
+              >
                 <span aria-hidden="true">♪</span>
                 Test alerts
               </button>
+
               <p id="alert-test-status" role="status" aria-live="polite">
                 Test before starting, especially on a phone.
               </p>
             </div>
+
             <p class="mobile-alert-note">
               iPhone and iPad browsers cannot vibrate from a webpage. Sound
               follows your phone's media volume and Silent Mode settings.
@@ -198,8 +234,12 @@
 
       <aside class="browser-warning" aria-labelledby="warning-heading">
         <span class="warning-icon" aria-hidden="true">!</span>
+
         <div>
-          <h2 id="warning-heading">Keep this page open and the screen awake</h2>
+          <h2 id="warning-heading">
+            Keep this page open and the screen awake
+          </h2>
+
           <p>
             Browser alarms can be delayed or suppressed when a screen locks, a
             tab is suspended, or the operating system closes the browser. This
@@ -215,7 +255,10 @@
             <p class="eyebrow">Live session</p>
             <h2 id="session-heading">Session summary</h2>
           </div>
-          <p class="history-caption" id="history-caption">No completed intervals yet</p>
+
+          <p class="history-caption" id="history-caption">
+            No completed intervals yet
+          </p>
         </div>
 
         <div class="stat-grid">
@@ -224,11 +267,13 @@
             <strong id="completed-count">0</strong>
             <small>intervals</small>
           </article>
+
           <article class="stat-card stat-accent">
             <span>Obtained mean</span>
             <strong id="obtained-mean">—</strong>
             <small>completed scheduled intervals</small>
           </article>
+
           <article class="stat-card">
             <span>Active time</span>
             <strong id="active-time">00:00</strong>
@@ -240,8 +285,12 @@
           <div class="history-empty" id="history-empty">
             <span aria-hidden="true">∷</span>
             <strong>Your interval history will appear here.</strong>
-            <p>Start the timer and completed intervals will be recorded automatically.</p>
+            <p>
+              Start the timer and completed intervals will be recorded
+              automatically.
+            </p>
           </div>
+
           <div class="table-wrap" id="history-table-wrap" hidden>
             <table>
               <thead>
@@ -260,9 +309,10 @@
 
       <section class="method-card" aria-labelledby="method-heading">
         <div>
-          <p class="eyebrow">How variable time works:</p>
+          <p class="eyebrow">Variable-time schedule generation:</p>
           <h2 id="method-heading">The Fleshler–Hoffman Progression</h2>
         </div>
+
         <div class="method-copy">
           <p>
             VT mode generates 12 positive values with the
@@ -271,12 +321,14 @@
             Every complete 12-interval block has exactly the selected
             arithmetic mean before display rounding.
           </p>
+
           <p>
             The progression was designed for variable-interval schedules to
             approximate a constant opportunity rate over elapsed time. Here,
             the same time-value progression drives response-independent VT
             alerts.
           </p>
+
           <a
             href="https://doi.org/10.1901/jeab.1962.5-529"
             target="_blank"
